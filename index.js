@@ -4,6 +4,7 @@ const addBook = document.getElementById('addBook');
 const submitBtn = document.getElementById('submitFormButton');
 const closeBtn = document.getElementById('close-button');
 const shelf = document.getElementById('shelf');
+let bookCount = 0;
 const myLibrary = [];
 // Functions and event lisenters for pop-up modal
 function openModal(modal) {
@@ -71,19 +72,23 @@ function createCard() {
 	labelOne.setAttribute('id', 'labelOne');
 	labelOne.textContent = 'Yes';
 	inputOne.setAttribute('id', 'inputOne');
+	inputOne.setAttribute('type', 'radio');
+	inputOne.setAttribute('name', `card${bookCount}`);
 	labelTwo.setAttribute('id', 'labelTwo');
 	labelTwo.textContent = 'no';
 	inputTwo.setAttribute('id', 'inputTwo');
+	inputTwo.setAttribute('type', 'radio');
+	inputTwo.setAttribute('name', `card${bookCount}`);
 	bottomDiv.append(bottomHeader, labelOne, inputOne, labelTwo, inputTwo);
 	cardDiv.append(titleEl, authorEl, pagesEl, bottomDiv);
 	shelf.append(cardDiv);
 }
 
-createCard();
-
 submitBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	addBookToLibrary();
+	bookCount += 1;
+	createCard();
 	document.getElementById('pop-up').reset();
 	const modal = submitBtn.closest('.modal');
 	closeModal(modal);
