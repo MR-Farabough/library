@@ -1,9 +1,9 @@
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
-const addBookToShelf = document.getElementById('addBook');
 const bookShelf = document.getElementById('shelf');
 const submitBtn = document.querySelectorAll('.submitFormButton');
+const form = document.getElementById('pop-up');
 const myLibrary = [];
 let counter = 0;
 
@@ -30,14 +30,39 @@ function increaseCounter() {
 	counter += 1;
 }
 
-// function validFormInfo() {
-//     // Check if form information submitted is valid
-// }
-
 function addCard() {
 	if (counter === 19) return;
 	const cardDiv = document.createElement('div');
 	cardDiv.classList.add(`card${counter}`);
+	const authorP = document.createElement('p');
+	authorP.classList.add(`author${counter}`);
+	authorP.textContent = 'Author: ';
+	const titleP = document.createElement('p');
+	titleP.classList.add(`title${counter}`);
+	titleP.textContent = 'Title: ';
+	const pagesP = document.createElement('p');
+	pagesP.classList.add(`pages${counter}`);
+	pagesP.textContent = 'Pages: ';
+	// Create bottom Div
+	const bottomDiv = document.createElement('div');
+	const h4EL = document.createElement('h4');
+	h4EL.textContent = 'Finished Reading?';
+	const labelOne = document.createElement('label');
+	labelOne.textContent = 'YES';
+	labelOne.setAttribute('for', `radio${counter}`);
+	const inputOne = document.createElement('input');
+	inputOne.type = 'radio';
+	inputOne.setAttribute('name', `radio${counter}`);
+	inputOne.setAttribute('id', `radio${counter}`);
+	const labelTwo = document.createElement('label');
+	labelTwo.textContent = 'NO';
+	labelTwo.setAttribute('for', `radio${counter}`);
+	const inputTwo = document.createElement('input');
+	inputTwo.type = 'radio';
+	inputTwo.setAttribute('name', `radio${counter}`);
+	inputTwo.setAttribute('id', `radio${counter}`);
+	bottomDiv.append(h4EL, labelOne, inputOne, labelTwo, inputTwo);
+	cardDiv.append(authorP, titleP, pagesP, bottomDiv);
 	bookShelf.append(cardDiv);
 }
 
@@ -71,18 +96,16 @@ closeModalButtons.forEach((button) => {
 	});
 });
 
-submitBtn.forEach((button) => {
-	button.addEventListener('click', (e) => {
-		e.preventDefault();
-		document.getElementById('pop-up').reset();
-		addBookToLibrary();
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	addBookToLibrary();
+	document.getElementById('pop-up').reset();
+	submitBtn.forEach((button) => {
 		const modal = button.closest('.modal');
 		closeModal(modal);
 	});
 });
 
-// addBook button that has a pop up form
-// When the form is submitted add it to the array using addBookToLibrary() <event.preventDefault>
 // https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
 // Display the books on the page
 // Add a delete button to each book

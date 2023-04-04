@@ -102,7 +102,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	pointer-events: none;
 }
 
@@ -123,6 +123,15 @@ body {
 	grid-row: 1/4;
 	height: 850px;
 	width: 1400px;
+}
+
+#shelf > div > div {
+	padding: 5px;
+	background-color: rgb(215, 215, 215);
+}
+
+#shelf > div > * {
+	padding: 5px;
 }
 
 .card1 {
