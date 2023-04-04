@@ -53,7 +53,7 @@ body {
 	font-weight: bold;
 }
 
-.modal-header .close-button {
+.modal-header #close-button {
 	cursor: pointer;
 	border: none;
 	outline: none;
