@@ -66,14 +66,6 @@ function addCard() {
 	bookShelf.append(cardDiv);
 }
 
-function addBookToLibrary() {
-	increaseCounter();
-	addCard();
-	// const book = new Book('Harry Potter', 'JK Rowling', 500, true);
-	// console.log('finished');
-	// console.log(book.title, book.author, book.read);
-}
-
 openModalButtons.forEach((button) => {
 	button.addEventListener('click', () => {
 		const modal = document.querySelector(button.dataset.modalTarget);
@@ -98,27 +90,42 @@ closeModalButtons.forEach((button) => {
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
-	addBookToLibrary();
+	increaseCounter();
+	addCard();
+	const cardClass = `.card${counter}`;
+	const cardEL = document.querySelector(cardClass);
+	console.log(cardEL);
 	const titleClass = `.title${counter}`;
 	const authorClass = `.author${counter}`;
 	const pagesClass = `.pages${counter}`;
 	const inputTitle = document.getElementById('book-title');
 	const updatedTitle = document.querySelector(titleClass);
-	updatedTitle.innerText = `Title: ${inputTitle.value}`;
-
 	const inputAuthor = document.getElementById('book-author');
 	const updatedAuthor = document.querySelector(authorClass);
-	updatedAuthor.innerText = `Author: ${inputAuthor.value}`;
-
 	const inputPages = document.getElementById('book-pages');
 	const updatedPages = document.querySelector(pagesClass);
-	updatedPages.innerText = `Pages: ${inputPages.value}`;
-
-	document.getElementById('pop-up').reset();
-	submitBtn.forEach((button) => {
-		const modal = button.closest('.modal');
-		closeModal(modal);
-	});
+	if (inputPages.value.length > 5) {
+		alert('Page length must be under 5');
+		cardEL.remove();
+		counter -= 1;
+	} else if (inputAuthor.value.length > 15) {
+		alert('Author Name lenght must be under 15');
+		cardEL.remove();
+		counter -= 1;
+	} else if (inputTitle.value.length > 15) {
+		alert('title length must be under 15');
+		cardEL.remove();
+		counter -= 1;
+	} else {
+		updatedTitle.innerText = `Title: ${inputTitle.value}`;
+		updatedAuthor.innerText = `Author: ${inputAuthor.value}`;
+		updatedPages.innerText = `Pages: ${inputPages.value}`;
+		document.getElementById('pop-up').reset();
+		submitBtn.forEach((button) => {
+			const modal = button.closest('.modal');
+			closeModal(modal);
+		});
+	}
 });
 
 // TODO Add a delete button to each book
