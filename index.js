@@ -3,6 +3,7 @@ const overlay = document.getElementById('overlay');
 const addBook = document.getElementById('addBook');
 const submitBtn = document.getElementById('submitFormButton');
 const closeBtn = document.getElementById('close-button');
+const shelf = document.getElementById('shelf');
 const myLibrary = [];
 // Functions and event lisenters for pop-up modal
 function openModal(modal) {
@@ -36,7 +37,6 @@ closeBtn.addEventListener('click', () => {
 	});
 });
 
-// Constructor function
 function Book(title, author, pages) {
 	this.title = title;
 	this.author = author;
@@ -51,6 +51,36 @@ function addBookToLibrary() {
 	myLibrary.push(book);
 }
 
+function createCard() {
+	const cardDiv = document.createElement('div');
+	const titleEl = document.createElement('p');
+	const authorEl = document.createElement('p');
+	const pagesEl = document.createElement('p');
+	const bottomDiv = document.createElement('div');
+	const bottomHeader = document.createElement('h4');
+	const labelOne = document.createElement('label');
+	const inputOne = document.createElement('input');
+	const labelTwo = document.createElement('label');
+	const inputTwo = document.createElement('input');
+	cardDiv.setAttribute('id', 'library-book');
+	titleEl.setAttribute('id', 'card-title');
+	authorEl.setAttribute('id', 'card-author');
+	pagesEl.setAttribute('id', 'card-pages');
+	bottomDiv.setAttribute('id', 'bottom-div');
+	bottomHeader.setAttribute('id', 'bottom-header');
+	labelOne.setAttribute('id', 'labelOne');
+	labelOne.textContent = 'Yes';
+	inputOne.setAttribute('id', 'inputOne');
+	labelTwo.setAttribute('id', 'labelTwo');
+	labelTwo.textContent = 'no';
+	inputTwo.setAttribute('id', 'inputTwo');
+	bottomDiv.append(bottomHeader, labelOne, inputOne, labelTwo, inputTwo);
+	cardDiv.append(titleEl, authorEl, pagesEl, bottomDiv);
+	shelf.append(cardDiv);
+}
+
+createCard();
+
 submitBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	addBookToLibrary();
@@ -64,4 +94,3 @@ submitBtn.addEventListener('click', (e) => {
 // TODO figure out card styling
 // TODO figure out dynamic card positioning (on delete)
 // TODO create a card funciton
-// TODO
