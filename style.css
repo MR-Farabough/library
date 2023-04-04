@@ -129,6 +129,14 @@ body {
 	padding: 5px;
 }
 
+#shelf > div > div > label {
+	padding: 10px;
+}
+
+#shelf > div > div > h4 {
+	text-align: center;
+}
+
 #shelf > div > * {
 	padding: 5px;
 }

@@ -62,7 +62,7 @@ function addCard() {
 	inputTwo.setAttribute('name', `radio${counter}`);
 	inputTwo.setAttribute('id', `radio${counter}`);
 	bottomDiv.append(h4EL, labelOne, inputOne, labelTwo, inputTwo);
-	cardDiv.append(authorP, titleP, pagesP, bottomDiv);
+	cardDiv.append(titleP, authorP, pagesP, bottomDiv);
 	bookShelf.append(cardDiv);
 }
 
