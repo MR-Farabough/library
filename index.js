@@ -2,8 +2,9 @@
 const overlay = document.getElementById('overlay');
 const addBook = document.getElementById('addBook');
 const submitBtn = document.getElementById('submitFormButton');
+const closeBtn = document.getElementById('close-button');
 const myLibrary = [];
-// Functions and event lisenters for pop-up
+// Functions and event lisenters for pop-up modal
 function openModal(modal) {
 	if (modal == null) return;
 	modal.classList.add('active');
@@ -22,6 +23,13 @@ addBook.addEventListener('click', () => {
 });
 
 overlay.addEventListener('click', () => {
+	const modals = document.querySelectorAll('.modal.active');
+	modals.forEach((modal) => {
+		closeModal(modal);
+	});
+});
+
+closeBtn.addEventListener('click', () => {
 	const modals = document.querySelectorAll('.modal.active');
 	modals.forEach((modal) => {
 		closeModal(modal);
