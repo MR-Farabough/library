@@ -61,8 +61,14 @@ function addCard() {
 	inputTwo.type = 'radio';
 	inputTwo.setAttribute('name', `radio${counter}`);
 	inputTwo.setAttribute('id', `radio${counter}`);
+	const delBTN = document.createElement('button');
+	delBTN.setAttribute('id', 'delBTN');
+	delBTN.textContent = 'DELETE';
+	delBTN.addEventListener('click', () => {
+		cardDiv.remove();
+	});
 	bottomDiv.append(h4EL, labelOne, inputOne, labelTwo, inputTwo);
-	cardDiv.append(titleP, authorP, pagesP, bottomDiv);
+	cardDiv.append(titleP, authorP, pagesP, bottomDiv, delBTN);
 	bookShelf.append(cardDiv);
 }
 

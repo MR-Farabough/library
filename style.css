@@ -141,6 +141,17 @@ body {
 	padding: 5px;
 }
 
+#delBTN {
+	cursor: pointer;
+	background-color: red;
+	color: white;
+	font-size: 1.25rem;
+	border: 0px;
+	border-radius: 10px;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
 .card1 {
 	grid-column: 2 / 3;
 	grid-row: 1 / 4;
