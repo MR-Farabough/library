@@ -49,22 +49,33 @@
 .modal-body {
 	margin-top: 5px;
 	padding: 15px;
+	display: flex;
+	flex-direction: column;
 }
 
-.modal-body > div {
+.modal-body > form > div {
 	display: flex;
 	flex-direction: column;
 	margin: 10px;
 }
 
-.modal-body > div > label {
+.modal-body > form > div > label {
 	font-weight: bold;
 }
 
-.modal-body > div > input {
+.modal-body > form > div > input {
 	border: 1px solid black;
 	border-radius: 5px;
 	margin: 10px;
+	padding: 10px;
+}
+
+.submitFormButton {
+	padding: 10px;
+	margin: 10px;
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
 }
 
 #overlay {
