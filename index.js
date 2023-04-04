@@ -69,9 +69,9 @@ function addCard() {
 function addBookToLibrary() {
 	increaseCounter();
 	addCard();
-	const book = new Book('Harry Potter', 'JK Rowling', 500, true);
-	console.log('finished');
-	console.log(book.title, book.author, book.read);
+	// const book = new Book('Harry Potter', 'JK Rowling', 500, true);
+	// console.log('finished');
+	// console.log(book.title, book.author, book.read);
 }
 
 openModalButtons.forEach((button) => {
@@ -99,6 +99,21 @@ closeModalButtons.forEach((button) => {
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	addBookToLibrary();
+	const titleClass = `.title${counter}`;
+	const authorClass = `.author${counter}`;
+	const pagesClass = `.pages${counter}`;
+	const inputTitle = document.getElementById('book-title');
+	const updatedTitle = document.querySelector(titleClass);
+	updatedTitle.innerText = `Title: ${inputTitle.value}`;
+
+	const inputAuthor = document.getElementById('book-author');
+	const updatedAuthor = document.querySelector(authorClass);
+	updatedAuthor.innerText = `Author: ${inputAuthor.value}`;
+
+	const inputPages = document.getElementById('book-pages');
+	const updatedPages = document.querySelector(pagesClass);
+	updatedPages.innerText = `Pages: ${inputPages.value}`;
+
 	document.getElementById('pop-up').reset();
 	submitBtn.forEach((button) => {
 		const modal = button.closest('.modal');
@@ -106,7 +121,5 @@ form.addEventListener('submit', (e) => {
 	});
 });
 
-// https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
-// Display the books on the page
-// Add a delete button to each book
-// Add a button or switch to change the 'read' status from false to true (this could change something on the card)
+// TODO Add a delete button to each book
+// TODO GO through and add a comment then we will probably want to rewrite this
