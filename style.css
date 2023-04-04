@@ -4,6 +4,19 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: black;
+}
+
+#addBook {
+	background-color: rgb(142, 51, 51);
+	color: white;
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding: 15px;
+	border-radius: 10px;
+}
+
 .modal {
 	position: fixed;
 	top: 50%;
@@ -97,14 +110,195 @@
 
 #shelf {
 	display: grid;
-	grid-template-columns: repeat(6, 160px);
-	grid-template-rows: 3;
+	padding: 25px;
+	grid-template-columns: repeat(8, 180px);
+	grid-template-rows: repeat(3, 290px);
 }
 
-.card {
-	height: 300px;
+#shelf > img {
+	grid-column: 1/9;
+	grid-row: 1/4;
+	height: 850px;
+	width: 1400px;
+}
+
+.card1 {
+	grid-column: 2 / 3;
+	grid-row: 1 / 4;
+	height: 200px;
 	width: 150px;
-	background-color: black;
-	margin: 20px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 80px;
+	border-radius: 15px;
+}
+.card2 {
+	grid-column: 3 / 5;
+	grid-row: 1 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 80px;
+	border-radius: 15px;
+}
+.card3 {
+	grid-column: 4 / 6;
+	grid-row: 1 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 80px;
+	border-radius: 15px;
+}
+.card4 {
+	grid-column: 5 / 7;
+	grid-row: 1 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 80px;
+	border-radius: 15px;
+}
+.card5 {
+	grid-column: 6 / 8;
+	grid-row: 1 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 80px;
+	border-radius: 15px;
+}
+.card6 {
+	grid-column: 7 / 9;
+	grid-row: 1 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 80px;
+	border-radius: 15px;
+}
+.card7 {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 65px;
+	border-radius: 15px;
+}
+.card8 {
+	grid-column: 3 / 5;
+	grid-row: 2 / 3;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 65px;
+	border-radius: 15px;
+}
+.card9 {
+	grid-column: 4 / 6;
+	grid-row: 2 / 3;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 65px;
+	border-radius: 15px;
+}
+.card10 {
+	grid-column: 5 / 7;
+	grid-row: 2 / 3;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 65px;
+	border-radius: 15px;
+}
+.card11 {
+	grid-column: 6 / 8;
+	grid-row: 2 / 3;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 65px;
+	border-radius: 15px;
+}
+.card12 {
+	grid-column: 7 / 9;
+	grid-row: 2 / 3;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 65px;
+	border-radius: 15px;
+}
+.card13 {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 35px;
+	border-radius: 15px;
+}
+.card14 {
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 35px;
+	border-radius: 15px;
+}
+.card15 {
+	grid-column: 4 / 6;
+	grid-row: 3 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 35px;
+	border-radius: 15px;
+}
+.card16 {
+	grid-column: 5 / 7;
+	grid-row: 3 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 35px;
+	border-radius: 15px;
+}
+.card17 {
+	grid-column: 6 / 8;
+	grid-row: 3 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 35px;
+	border-radius: 15px;
+}
+.card18 {
+	grid-column: 7 / 9;
+	grid-row: 3 / 4;
+	height: 200px;
+	width: 150px;
+	background-color: white;
+	margin-right: 20px;
+	margin-top: 35px;
 	border-radius: 15px;
 }
