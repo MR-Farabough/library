@@ -1,6 +1,7 @@
 *,
 *::after,
 *::before {
+	margin: 0px;
 	box-sizing: border-box;
 }
 
@@ -14,6 +15,8 @@ body {
 	font-size: 1.25rem;
 	font-weight: bold;
 	padding: 15px;
+	margin-left: 25px;
+	margin-top: 10px;
 	border-radius: 10px;
 }
 

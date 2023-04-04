@@ -3,6 +3,7 @@ const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
 const addBookToShelf = document.getElementById('addBook');
 const bookShelf = document.getElementById('shelf');
+const submitBtn = document.querySelectorAll('.submitFormButton');
 const myLibrary = [];
 let counter = 0;
 
@@ -33,9 +34,16 @@ function increaseCounter() {
 //     // Check if form information submitted is valid
 // }
 
+function addCard() {
+	if (counter === 19) return;
+	const cardDiv = document.createElement('div');
+	cardDiv.classList.add(`card${counter}`);
+	bookShelf.append(cardDiv);
+}
+
 function addBookToLibrary() {
 	increaseCounter();
-
+	addCard();
 	const book = new Book('Harry Potter', 'JK Rowling', 500, true);
 	console.log('finished');
 	console.log(book.title, book.author, book.read);
@@ -57,12 +65,22 @@ overlay.addEventListener('click', () => {
 
 closeModalButtons.forEach((button) => {
 	button.addEventListener('click', () => {
+		document.getElementById('pop-up').reset();
 		const modal = button.closest('.modal');
 		closeModal(modal);
 	});
 });
 
-addBookToShelf.addEventListener('click', addBookToLibrary);
+submitBtn.forEach((button) => {
+	button.addEventListener('click', (e) => {
+		e.preventDefault();
+		document.getElementById('pop-up').reset();
+		addBookToLibrary();
+		const modal = button.closest('.modal');
+		closeModal(modal);
+	});
+});
+
 // addBook button that has a pop up form
 // When the form is submitted add it to the array using addBookToLibrary() <event.preventDefault>
 // https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
