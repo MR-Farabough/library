@@ -104,7 +104,7 @@ function addValueToCard() {
 	curPages.textContent = `Pages: ${pagesInput.value}`;
 }
 
-submitBtn.addEventListener('click', (e) => {
+submitBtn.addEventListener('submit', (e) => {
 	e.preventDefault();
 	addBookToLibrary();
 	createCard();
