@@ -105,15 +105,26 @@ function addValueToCard() {
 }
 
 submitBtn.addEventListener('click', (e) => {
-	e.preventDefault();
-	addBookToLibrary();
-	createCard();
-	addValueToCard();
-	bookCount += 1;
-	document.getElementById('pop-up').reset();
-	const modal = submitBtn.closest('.modal');
-	closeModal(modal);
-	console.log(myLibrary);
+	const titleInput = document.getElementById('book-title');
+	const authorInput = document.getElementById('book-author');
+	const pagesInput = document.getElementById('book-pages');
+	if (
+		titleInput.value.length < 2 ||
+		authorInput.value.length < 2 ||
+		pagesInput.value.length < 1
+	) {
+		e.preventDefault();
+		alert('Input fields cannot be blank');
+	} else {
+		addBookToLibrary();
+		createCard();
+		addValueToCard();
+		bookCount += 1;
+		document.getElementById('pop-up').reset();
+		const modal = submitBtn.closest('.modal');
+		closeModal(modal);
+		console.log(myLibrary);
+	}
 });
 
 // Add a JS validation for the form
