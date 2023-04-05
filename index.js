@@ -104,7 +104,7 @@ function addValueToCard() {
 	curPages.textContent = `Pages: ${pagesInput.value}`;
 }
 
-submitBtn.addEventListener('submit', (e) => {
+submitBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	addBookToLibrary();
 	createCard();
@@ -115,3 +115,5 @@ submitBtn.addEventListener('submit', (e) => {
 	closeModal(modal);
 	console.log(myLibrary);
 });
+
+// Add a JS validation for the form
