@@ -36,6 +36,7 @@ closeBtn.addEventListener('click', () => {
 	modals.forEach((modal) => {
 		closeModal(modal);
 	});
+	document.getElementById('pop-up').reset();
 });
 
 function Book(title, author, pages) {
@@ -63,10 +64,10 @@ function createCard() {
 	const inputOne = document.createElement('input');
 	const labelTwo = document.createElement('label');
 	const inputTwo = document.createElement('input');
-	cardDiv.setAttribute('id', 'library-book');
-	titleEl.setAttribute('id', 'card-title');
-	authorEl.setAttribute('id', 'card-author');
-	pagesEl.setAttribute('id', 'card-pages');
+	cardDiv.setAttribute('id', `library-book${bookCount}`);
+	titleEl.setAttribute('id', `card-title${bookCount}`);
+	authorEl.setAttribute('id', `card-author${bookCount}`);
+	pagesEl.setAttribute('id', `card-pages${bookCount}`);
 	bottomDiv.setAttribute('id', 'bottom-div');
 	bottomHeader.setAttribute('id', 'bottom-header');
 	labelOne.setAttribute('id', 'labelOne');
@@ -75,7 +76,7 @@ function createCard() {
 	inputOne.setAttribute('type', 'radio');
 	inputOne.setAttribute('name', `card${bookCount}`);
 	labelTwo.setAttribute('id', 'labelTwo');
-	labelTwo.textContent = 'no';
+	labelTwo.textContent = 'No';
 	inputTwo.setAttribute('id', 'inputTwo');
 	inputTwo.setAttribute('type', 'radio');
 	inputTwo.setAttribute('name', `card${bookCount}`);
@@ -84,18 +85,31 @@ function createCard() {
 	shelf.append(cardDiv);
 }
 
+function addValueToCard() {
+	const titleInput = document.getElementById('book-title');
+	const authorInput = document.getElementById('book-author');
+	const pagesInput = document.getElementById('book-pages');
+	const curTitle = document.getElementById(`card-title${bookCount}`);
+	const curAuthor = document.getElementById(`card-author${bookCount}`);
+	const curPages = document.getElementById(`card-pages${bookCount}`);
+	curTitle.textContent = `Title: ${titleInput.value}`;
+	curAuthor.textContent = `Author: ${authorInput.value}`;
+	curPages.textContent = `Pages: ${pagesInput.value}`;
+}
+
 submitBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	addBookToLibrary();
-	bookCount += 1;
 	createCard();
+	addValueToCard();
+	bookCount += 1;
 	document.getElementById('pop-up').reset();
 	const modal = submitBtn.closest('.modal');
 	closeModal(modal);
+	console.log(myLibrary);
 });
 
 // PLANNING PHASE
 
 // TODO figure out card styling
 // TODO figure out dynamic card positioning (on delete)
-// TODO create a card funciton
