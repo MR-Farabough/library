@@ -67,7 +67,7 @@ function createCard() {
 	const delBtn = document.createElement('button');
 	delBtn.textContent = 'Delete Book';
 	delBtn.setAttribute('id', 'delBTN');
-	cardDiv.setAttribute('id', `library-book${bookCount}`);
+	cardDiv.setAttribute('id', 'library-book');
 	titleEl.setAttribute('id', `card-title${bookCount}`);
 	authorEl.setAttribute('id', `card-author${bookCount}`);
 	pagesEl.setAttribute('id', `card-pages${bookCount}`);
@@ -115,8 +115,3 @@ submitBtn.addEventListener('click', (e) => {
 	closeModal(modal);
 	console.log(myLibrary);
 });
-
-// PLANNING PHASE
-
-// TODO figure out card styling
-// TODO figure out dynamic card positioning (on delete)
