@@ -64,12 +64,16 @@ function createCard() {
 	const inputOne = document.createElement('input');
 	const labelTwo = document.createElement('label');
 	const inputTwo = document.createElement('input');
+	const delBtn = document.createElement('button');
+	delBtn.textContent = 'Delete Book';
+	delBtn.setAttribute('id', 'delBTN');
 	cardDiv.setAttribute('id', `library-book${bookCount}`);
 	titleEl.setAttribute('id', `card-title${bookCount}`);
 	authorEl.setAttribute('id', `card-author${bookCount}`);
 	pagesEl.setAttribute('id', `card-pages${bookCount}`);
 	bottomDiv.setAttribute('id', 'bottom-div');
 	bottomHeader.setAttribute('id', 'bottom-header');
+	bottomHeader.textContent = 'Finished Reading?';
 	labelOne.setAttribute('id', 'labelOne');
 	labelOne.textContent = 'Yes';
 	inputOne.setAttribute('id', 'inputOne');
@@ -81,8 +85,11 @@ function createCard() {
 	inputTwo.setAttribute('type', 'radio');
 	inputTwo.setAttribute('name', `card${bookCount}`);
 	bottomDiv.append(bottomHeader, labelOne, inputOne, labelTwo, inputTwo);
-	cardDiv.append(titleEl, authorEl, pagesEl, bottomDiv);
+	cardDiv.append(titleEl, authorEl, pagesEl, bottomDiv, delBtn);
 	shelf.append(cardDiv);
+	delBtn.addEventListener('click', () => {
+		cardDiv.remove();
+	});
 }
 
 function addValueToCard() {
