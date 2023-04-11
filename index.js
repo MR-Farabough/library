@@ -6,7 +6,15 @@ const closeBtn = document.getElementById('close-button');
 const shelf = document.getElementById('shelf');
 let bookCount = 0;
 const myLibrary = [];
-// Functions and event lisenters for pop-up modal
+
+class Book {
+	newBook(title, author, pages) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+	}
+}
+
 function openModal(modal) {
 	if (modal == null) return;
 	modal.classList.add('active');
@@ -38,20 +46,6 @@ closeBtn.addEventListener('click', () => {
 	});
 	document.getElementById('pop-up').reset();
 });
-
-function Book(title, author, pages) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-}
-
-function addBookToLibrary() {
-	const titleInput = document.getElementById('book-title');
-	const authorInput = document.getElementById('book-author');
-	const pagesInput = document.getElementById('book-pages');
-	const book = new Book(titleInput.value, authorInput.value, pagesInput.value);
-	myLibrary.push(book);
-}
 
 function createCard() {
 	const cardDiv = document.createElement('div');
@@ -104,6 +98,14 @@ function addValueToCard() {
 	curPages.textContent = `Pages: ${pagesInput.value}`;
 }
 
+function addBookToLibrary() {
+	const titleInput = document.getElementById('book-title');
+	const authorInput = document.getElementById('book-author');
+	const pagesInput = document.getElementById('book-pages');
+	const book = new Book(titleInput.value, authorInput.value, pagesInput.value);
+	myLibrary.push(book);
+}
+
 submitBtn.addEventListener('click', (e) => {
 	const titleInput = document.getElementById('book-title');
 	const authorInput = document.getElementById('book-author');
@@ -126,5 +128,3 @@ submitBtn.addEventListener('click', (e) => {
 		console.log(myLibrary);
 	}
 });
-
-// Add a JS validation for the form
