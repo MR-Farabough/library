@@ -7,6 +7,33 @@ const shelf = document.getElementById('shelf');
 let bookCount = 0;
 const myLibrary = [];
 
+// FORM VALIDATION START
+const titleInput = document.getElementById('book-title');
+const authorInput = document.getElementById('book-author');
+const pagesInput = document.getElementById('book-pages');
+function formValidation(title, author, pageCount) {
+	if (title.value == '' || title.value == null) {
+		title.style.border = '2px solid red';
+	} else {
+		title.style.border = '2px solid green';
+	}
+	if (author.value == '' || author.value == null) {
+		author.style.border = '2px solid red';
+	} else {
+		author.style.border = '2px solid green';
+	}
+	if (pageCount.value == '' || pageCount.value == null) {
+		pageCount.style.border = '2px solid red';
+	} else {
+		pageCount.style.border = '2px solid green';
+	}
+}
+formValidation(titleInput, authorInput, pagesInput);
+setInterval(() => {
+	formValidation(titleInput, authorInput, pagesInput);
+}, 100);
+// FORM VALIDATION END
+
 class Book {
 	newBook(title, author, pages) {
 		this.title = title;
